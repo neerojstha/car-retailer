@@ -13,3 +13,9 @@ def car_detail(request, id):
     return render(request, 'car_detail.html', {
         'car': car
     })
+
+def contact(request):
+    return render(request, "cars/contact.html")
+
+def about(request):
+    return render(request, "cars/about.html")
