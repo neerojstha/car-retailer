@@ -1,69 +1,67 @@
-<!DOCTYPE html>
-            object-fit: cover;
-        }
-
-        footer {
-            background: black;
-            color: white;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Baniya Motors</a>
-    </div>
-</nav>
-
-<section class="hero">
-    <div class="overlay">
-        <div>
-            <h1 class="display-3 fw-bold">Find Your Dream Car</h1>
-            <p class="lead">Premium Cars at Affordable Prices</p>
+{% load static %}
         </div>
     </div>
 </section>
 
-<section class="py-5">
+<!-- Features -->
+<section class="features" id="features">
     <div class="container">
-        <h2 class="text-center mb-5">Available Cars</h2>
 
-        <div class="row">
+        <div class="section-title">
+            <h2>Why Choose Us</h2>
+            <p>We provide world-class car buying experience</p>
+        </div>
 
-            {% for car in cars %}
+        <div class="row g-4">
 
-            <div class="col-md-4 mb-4">
-                <div class="card shadow car-card h-100">
-
-                    <img src="{{ car.image.url }}" class="card-img-top">
-
-                    <div class="card-body">
-                        <h3>{{ car.title }}</h3>
-
-                        <p><strong>Brand:</strong> {{ car.brand }}</p>
-                        <p><strong>Year:</strong> {{ car.year }}</p>
-                        <p><strong>Fuel:</strong> {{ car.fuel_type }}</p>
-                        <p><strong>Transmission:</strong> {{ car.transmission }}</p>
-
-                        <h4 class="text-success">€{{ car.price }}</h4>
-
-                        <p>{{ car.description|truncatewords:20 }}</p>
-                    </div>
+            <div class="col-lg-4">
+                <div class="feature-box">
+                    <i class="bi bi-shield-check"></i>
+                    <h4>Trusted Quality</h4>
+                    <p>
+                        Every vehicle undergoes strict inspection to ensure premium quality.
+                    </p>
                 </div>
             </div>
 
-            {% endfor %}
+            <div class="col-lg-4">
+                <div class="feature-box">
+                    <i class="bi bi-currency-euro"></i>
+                    <h4>Affordable Pricing</h4>
+                    <p>
+                        Luxury vehicles available at highly competitive prices.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="feature-box">
+                    <i class="bi bi-headset"></i>
+                    <h4>24/7 Support</h4>
+                    <p>
+                        Our support team is available anytime for customer assistance.
+                    </p>
+                </div>
+            </div>
 
         </div>
     </div>
 </section>
 
-<footer class="text-center">
-    <h4>Baniya Motors</h4>
-    <p>© 2026 All Rights Reserved</p>
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <h3 class="mb-3">Baniya Motors</h3>
+        <p class="footer-text">
+            Premium Cars • Trusted Service • Luxury Experience
+        </p>
+        <p class="footer-text mb-0">
+            © 2026 Baniya Motors. All Rights Reserved.
+        </p>
+    </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
