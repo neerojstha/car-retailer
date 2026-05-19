@@ -407,9 +407,9 @@
                             {{ car.description|truncatewords:18 }}
                         </p>
 
-                        <button class="card-btn">
+                        <a href="{% url 'car_detail' car.id %}" class="btn card-btn">
                             View Details
-                        </button>
+                        </a>
 
                     </div>
                 </div>
