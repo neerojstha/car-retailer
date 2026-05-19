@@ -1,4 +1,422 @@
+
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baniya Motors | Premium Cars</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .navbar-brand {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: white !important;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            margin-left: 20px;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: #38bdf8 !important;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.88)),
+                url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(37,99,235,0.4);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-4px);
+            color: white;
+        }
+
+        .stats {
+            margin-top: 60px;
+        }
+
+        .stat-box h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-box p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: rgba(255,255,255,0.65);
+            margin-top: 10px;
+        }
+
+        .cars-section {
+            padding: 100px 0;
+            background: #020617;
+        }
+
+        .car-card {
+            background: linear-gradient(180deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.4s ease;
+            height: 100%;
+            position: relative;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        .car-image {
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.08);
+        }
+
+        .car-content {
+            padding: 25px;
+        }
+
+        .car-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .car-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .meta-item span {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 4px;
+        }
+
+        .meta-item strong {
+            color: white;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 25px;
+        }
+
+        .card-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            border: none;
+            color: white;
+            padding: 14px;
+            border-radius: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .card-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .features {
+            padding: 100px 0;
+            background: #0f172a;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 24px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .feature-box i {
+            font-size: 3rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .feature-box h4 {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-box p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        footer {
+            background: #020617;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media(max-width: 991px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Baniya Motors</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cars">Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="hero-content">
+                    <h1>Luxury Cars <br> For Premium Drivers</h1>
+
+                    <p>
+                        Discover handpicked premium vehicles with unbeatable quality,
+                        modern technology, and affordable pricing.
+                    </p>
+
+                    <a href="#cars" class="hero-btn">
+                        Explore Cars
+                    </a>
+
+                    <div class="row stats">
+                        <div class="col-4 stat-box">
+                            <h3>500+</h3>
+                            <p>Cars Sold</p>
+                        </div>
+
+                        <div class="col-4 stat-box">
+                            <h3>98%</h3>
+                            <p>Happy Clients</p>
+                        </div>
+
+                        <div class="col-4 stat-box">
+                            <h3>10+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Cars -->
+<section class="cars-section" id="cars">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Featured Vehicles</h2>
+            <p>Explore our premium collection of luxury cars</p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for car in cars %}
+
+            <div class="col-lg-4 col-md-6">
+                <div class="car-card">
+
+                    <div class="car-image">
+                        <img src="{{ car.image.url }}" alt="{{ car.title }}">
+                    </div>
+
+                    <div class="car-content">
+
+                        <h3>{{ car.title }}</h3>
+
+                        <div class="car-meta">
+
+                            <div class="meta-item">
+                                <span>Brand</span>
+                                <strong>{{ car.brand }}</strong>
+                            </div>
+
+                            <div class="meta-item">
+                                <span>Year</span>
+                                <strong>{{ car.year }}</strong>
+                            </div>
+
+                            <div class="meta-item">
+                                <span>Fuel</span>
+                                <strong>{{ car.fuel_type }}</strong>
+                            </div>
+
+                            <div class="meta-item">
+                                <span>Transmission</span>
+                                <strong>{{ car.transmission }}</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="price">
+                            €{{ car.price }}
+                        </div>
+
+                        <p class="description">
+                            {{ car.description|truncatewords:18 }}
+                        </p>
+
+                        <button class="card-btn">
+                            View Details
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
         </div>
     </div>
 </section>
