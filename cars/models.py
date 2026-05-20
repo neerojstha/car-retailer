@@ -10,6 +10,9 @@ class Car(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='cars/')
 
+    fuel_type = models.CharField(max_length=50)
+    transmission = models.CharField(max_length=50)
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
