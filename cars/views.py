@@ -10,7 +10,7 @@ def home(request):
 def car_detail(request, id):
     car = get_object_or_404(Car, id=id)
 
-    return render(request, 'car_detail.html', {
+    return render(request, 'cars/car_detail.html', {
         'car': car
     })
 
