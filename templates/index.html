@@ -269,6 +269,47 @@
             color: rgba(255,255,255,0.6);
         }
 
+        .filter-section {
+            margin-top: 90px;
+            padding: 30px 0;
+            background: #0f172a;
+        }
+
+        .filter-box {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .filter-box label {
+            color: black;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .filter-box .form-control,
+        .filter-box .form-select {
+            height: 50px;
+            border-radius: 12px;
+        }
+
+        .filter-btn {
+            height: 50px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        
+
         @media(max-width: 991px) {
             .hero-content h1 {
                 font-size: 3rem;
@@ -336,6 +377,76 @@
         </div>
     </div>
 </nav>
+<!-- FILTER SECTION -->
+<section class="filter-section">
+    <div class="container">
+
+        <form method="GET" action="" class="filter-box">
+
+            <div class="row g-3 align-items-end">
+
+                <!-- Brand -->
+                <div class="col-lg-3 col-md-6">
+                    <label class="form-label">Brand</label>
+
+                    <select name="brand" class="form-select">
+                        <option value="">All Brands</option>
+
+                        {% for brand in brands %}
+                            <option value="{{ brand }}"
+                                {% if request.GET.brand == brand %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ brand }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Year -->
+                <div class="col-lg-3 col-md-6">
+                    <label class="form-label">Year</label>
+
+                    <select name="year" class="form-select">
+                        <option value="">All Years</option>
+
+                        {% for year in years %}
+                            <option value="{{ year }}"
+                                {% if request.GET.year == year|stringformat:"s" %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ year }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Budget -->
+                <div class="col-lg-3 col-md-6">
+                    <label class="form-label">Max Budget (€)</label>
+
+                    <input type="number"
+                           name="budget"
+                           class="form-control"
+                           placeholder="50000"
+                           value="{{ request.GET.budget }}">
+                </div>
+
+                <!-- Button -->
+                <div class="col-lg-3 col-md-6">
+                    <button type="submit" class="filter-btn w-100">
+                        Search Cars
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</section>
 
 <!-- Hero -->
 <section class="hero">
