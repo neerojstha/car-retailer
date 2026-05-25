@@ -78,9 +78,9 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dha2xf4g7',
-    'API_KEY': '726345944559875',
-    'API_SECRET': 'jDWIiadY8zOpmRutB2rrOpJkmtY',
+    'CLOUD_NAME': os.environ.get('dha2xf4g7'),
+    'API_KEY': os.environ.get('726345944559875'),
+    'API_SECRET': os.environ.get('jDWIiadY8zOpmRutB2rrOpJkmtY'),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
