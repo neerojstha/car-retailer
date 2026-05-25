@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,6 +77,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dha2xf4g7',
+    'API_KEY': '726345944559875',
+    'API_SECRET': 'jDWIiadY8zOpmRutB2rrOpJkmtY',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
@@ -106,13 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dha2xf4g7',
-    'API_KEY': '726345944559875',
-    'API_SECRET': 'your-api-secret',
-}
 
-CLOUDINARY_URL='cloudinary://<your_api_key>:<your_api_secret>@dha2xf4g7'
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
