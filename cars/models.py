@@ -33,3 +33,39 @@ class CarImage(models.Model):
 
     def __str__(self):
         return f"{self.car.title} Image"
+
+# Hero Model
+class HeroSlide(models.Model):
+
+    title = models.CharField(max_length=200)
+
+    subtitle = models.TextField()
+
+    image = models.ImageField(
+        upload_to='hero_images/',
+        blank=True,
+        null=True
+    )
+
+    video = models.FileField(
+        upload_to='hero_videos/',
+        blank=True,
+        null=True
+    )
+
+    button_text = models.CharField(
+        max_length=100,
+        default="Explore Cars"
+    )
+
+    button_link = models.CharField(
+        max_length=200,
+        default="#cars"
+    )
+
+    active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title        

@@ -322,6 +322,55 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-media {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+        }
+
+        .custom-caption {
+            bottom: 30%;
+            z-index: 5;
+        }
+
+        .custom-caption h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+        }
+
+        .custom-caption p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            padding: 15px 35px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero-btn:hover {
+            color: white;
+        }
+
         @media(max-width: 991px) {
             .hero-content h1 {
                 font-size: 3rem;
@@ -460,43 +509,77 @@
     </div>
 </section>
 
-<!-- Hero -->
-<section class="hero">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="hero-content">
-                    <h1>Luxury Cars <br> For Premium Drivers</h1>
+<!-- HERO SLIDER -->
+<section class="hero-slider">
 
-                    <p>
-                        Discover handpicked premium vehicles with unbeatable quality,
-                        modern technology, and affordable pricing.
-                    </p>
+    <div id="heroCarousel" class="carousel slide carousel-fade"
+         data-bs-ride="carousel">
 
-                    <a href="#cars" class="hero-btn">
-                        Explore Cars
+        <div class="carousel-inner">
+
+            {% for slide in slides %}
+
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+
+                <!-- VIDEO -->
+                {% if slide.video %}
+                <video autoplay muted loop playsinline class="hero-media">
+                    <source src="{{ slide.video.url }}" type="video/mp4">
+                </video>
+
+                <!-- IMAGE -->
+                {% elif slide.image %}
+                <img src="{{ slide.image.url }}"
+                     class="hero-media"
+                     alt="{{ slide.title }}">
+                {% endif %}
+
+                <!-- OVERLAY -->
+                <div class="hero-overlay"></div>
+
+                <!-- CONTENT -->
+                <div class="carousel-caption custom-caption">
+
+                    <h1>{{ slide.title }}</h1>
+
+                    <p>{{ slide.subtitle }}</p>
+
+                    <a href="{{ slide.button_link }}"
+                       class="hero-btn">
+
+                        {{ slide.button_text }}
+
                     </a>
 
-                    <div class="row stats">
-                        <div class="col-4 stat-box">
-                            <h3>50+</h3>
-                            <p>Cars Sold</p>
-                        </div>
-
-                        <div class="col-4 stat-box">
-                            <h3>98%</h3>
-                            <p>Happy Clients</p>
-                        </div>
-
-                        <div class="col-4 stat-box">
-                            <h3>10+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                    </div>
                 </div>
+
             </div>
+
+            {% endfor %}
+
         </div>
+
+        <!-- Buttons -->
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
     </div>
+
 </section>
 
 <!-- Cars -->
@@ -634,6 +717,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

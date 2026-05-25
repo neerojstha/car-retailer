@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Car, CarImage
+from .models import Car, CarImage, HeroSlide
 
 
 class CarImageInline(admin.TabularInline):
@@ -12,3 +12,4 @@ class CarAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Car, CarAdmin)
+admin.site.register(HeroSlide)

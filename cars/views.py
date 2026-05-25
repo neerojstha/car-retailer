@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Car
+from .models import Car, HeroSlide
 
 
 def home(request):
@@ -38,7 +38,10 @@ def home(request):
         'cars': cars,
         'brands': brands,
         'years': years,
+        'slides': slides,
     }
+
+    slides = HeroSlide.objects.filter(active=True)
 
     return render(request, 'index.html', context)
 
