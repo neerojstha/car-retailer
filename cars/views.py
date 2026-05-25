@@ -4,6 +4,9 @@ from .models import Car, HeroSlide
 
 def home(request):
 
+     # HERO SLIDES
+    slides = HeroSlide.objects.filter(active=True)
+
     # Get all cars
     cars = Car.objects.all().order_by('-created_at')
 
@@ -41,7 +44,7 @@ def home(request):
         'slides': slides,
     }
 
-    slides = HeroSlide.objects.filter(active=True)
+    
 
     return render(request, 'index.html', context)
 
