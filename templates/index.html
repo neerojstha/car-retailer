@@ -332,6 +332,8 @@
             width: 100%;
             height: 100vh;
             object-fit: cover;
+            display: block;
+            background: #000;
         }
 
         .hero-overlay {
@@ -539,15 +541,15 @@
 
                 <!-- VIDEO -->
                 {% if slide.video %}
-                <video autoplay muted loop playsinline class="hero-media">
-                    <source src="{{ slide.video.url }}" type="video/mp4">
+                <video class="hero-media"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto">
+                <source src="{{ slide.video.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
                 </video>
-
-                <!-- IMAGE -->
-                {% elif slide.image %}
-                <img src="{{ slide.image.url }}"
-                     class="hero-media"
-                     alt="{{ slide.title }}">
                 {% endif %}
 
                 <!-- OVERLAY -->
