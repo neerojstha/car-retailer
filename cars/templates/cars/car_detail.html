@@ -32,6 +32,96 @@
             border-radius: 20px;
         }
 
+        .gallery-wrap {
+            width: 100%;
+        }
+
+        .main-image-box {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #0f172a;
+        }
+
+        .main-car-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .thumb-img {
+            width: 100%;
+            height: 95px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.3s;
+            opacity: 0.75;
+        }
+
+        .thumb-img:hover {
+            opacity: 1;
+            transform: scale(1.03);
+        }
+
+        .active-thumb {
+            border-color: #38bdf8;
+            opacity: 1;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.75);
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prev-btn {
+            left: 16px;
+        }
+
+        .next-btn {
+            right: 16px;
+        }
+
+        @media (max-width: 991px) {
+            .main-car-image {
+                height: 380px;
+            }
+
+            .thumbnail-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 575px) {
+            .main-car-image {
+                height: 280px;
+            }
+
+            .thumbnail-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         .thumbnail-img {
             height: 100px;
             object-fit: cover;
@@ -90,67 +180,39 @@
 
             <!-- LEFT SIDE IMAGE SLIDER -->
             <div class="col-lg-6">
+                <div class="gallery-wrap">
 
-                <div id="carCarousel" class="carousel slide">
+                    <div class="main-image-box position-relative">
+                        <img id="mainCarImage"
+                            src="{{ car.image.url }}"
+                            alt="{{ car.title }}"
+                            class="main-car-image">
 
-                    <div class="carousel-inner">
+                        <button type="button" class="gallery-nav prev-btn" onclick="changeImage(-1)">
+                                &#10094;
+                        </button>
 
-                        <!-- Main Image -->
-                        <div class="carousel-item active">
-                            <img src="{{ car.image.url }}"
-                                 class="d-block w-100 car-slider-image"
-                                 alt="{{ car.title }}">
-                        </div>
-
-                        <!-- Extra Images -->
-                        {% for img in car.images.all %}
-                        <div class="carousel-item">
-                            <img src="{{ img.image.url }}"
-                                 class="d-block w-100 car-slider-image"
-                                 alt="{{ car.title }}">
-                        </div>
-                        {% endfor %}
-
+                         <button type="button" class="gallery-nav next-btn" onclick="changeImage(1)">
+                                &#10095;
+                        </button>
                     </div>
 
-                    <!-- Prev -->
-                    <button class="carousel-control-prev"
-                            type="button"
-                            data-bs-target="#carCarousel"
-                            data-bs-slide="prev">
-
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-
-                    <!-- Next -->
-                    <button class="carousel-control-next"
-                            type="button"
-                            data-bs-target="#carCarousel"
-                            data-bs-slide="next">
-
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-
-                </div>
-
-                <!-- THUMBNAILS -->
-                <div class="row mt-3">
-
-                    <div class="col-3">
+                    <div class="thumbnail-grid mt-3">
                         <img src="{{ car.image.url }}"
-                             class="thumbnail-img">
-                    </div>
+                            class="thumb-img active-thumb"
+                            alt="{{ car.title }}"
+                            onclick="setImage(0, this)">
 
-                    {% for img in car.images.all %}
-                    <div class="col-3">
+                        {% for img in car.images.all %}
                         <img src="{{ img.image.url }}"
-                             class="thumbnail-img">
+                            class="thumb-img"
+                            alt="{{ car.title }}"
+                            onclick="setImage({{ forloop.counter }}, this)">
+                        {% endfor %}
                     </div>
-                    {% endfor %}
 
                 </div>
-
-            </div>
+        </div>
 
             <!-- RIGHT SIDE INFO -->
             <div class="col-lg-6">
@@ -199,6 +261,43 @@
 
 <!-- IMPORTANT FOR CAROUSEL -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const galleryImages = [
+        "{{ car.image.url }}",
+        {% for img in car.images.all %}
+            "{{ img.image.url }}"{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+    let currentIndex = 0;
+
+    function updateMainImage() {
+        document.getElementById("mainCarImage").src = galleryImages[currentIndex];
+
+        document.querySelectorAll(".thumb-img").forEach((thumb, index) => {
+            thumb.classList.toggle("active-thumb", index === currentIndex);
+        });
+    }
+
+    function setImage(index, el) {
+        currentIndex = index;
+        updateMainImage();
+    }
+
+    function changeImage(direction) {
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+            currentIndex = galleryImages.length - 1;
+        }
+
+        if (currentIndex >= galleryImages.length) {
+            currentIndex = 0;
+        }
+
+        updateMainImage();
+    }
+</script>
 
 </body>
 </html>

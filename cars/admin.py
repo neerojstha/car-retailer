@@ -4,7 +4,7 @@ from .models import Car, CarImage, HeroSlide
 
 class CarImageInline(admin.TabularInline):
     model = CarImage
-    extra = 3
+    extra = 15
 
 
 class CarAdmin(admin.ModelAdmin):
