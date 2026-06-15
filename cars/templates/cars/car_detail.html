@@ -261,6 +261,33 @@
 
 <!-- IMPORTANT FOR CAROUSEL -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const images = [
+        "{{ car.image.url }}",
+        {% for img in car.images.all %}
+        "{{ img.image.url }}",
+        {% endfor %}
+    ];
 
+    let currentIndex = 0;
+
+    function updateMainImage() {
+        document.getElementById("mainCarImage").src = images[currentIndex];
+
+        document.querySelectorAll(".thumb-img").forEach((thumb, index) => {
+            thumb.classList.toggle("active-thumb", index === currentIndex);
+        });
+    }
+
+    function changeImage(step) {
+        currentIndex = (currentIndex + step + images.length) % images.length;
+        updateMainImage();
+    }
+
+    function setImage(index, el) {
+        currentIndex = index;
+        updateMainImage();
+    }
+</script>
 </body>
 </html>
