@@ -27,14 +27,18 @@ SECRET_KEY = "django-insecure-+n(s(h2z)-+=o=6u8ih3a8v+_1u13^kr2%0--r7xi)b7mmv36*
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    ".motorhive.ie",
+    "www.motorhive.ie",
     ".herokuapp.com",
     "localhost",
     "127.0.0.1",
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.app.github.dev',
-    'https://localhost:8000',
-    'http://localhost:8000',
+    "https://motorhive.ie",
+    "https://www.motorhive.ie",
+    "https://*.app.github.dev",
+    "https://localhost:8000",
+    "http://localhost:8000",
 ]
 # Application definition
 
