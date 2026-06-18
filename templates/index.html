@@ -46,6 +46,16 @@
             letter-spacing: 1px;
         }
 
+        .navbar-brand img {
+            height: 60px;
+            width: auto;
+            transition: 0.3s;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+
         .nav-link {
             color: rgba(255,255,255,0.8) !important;
             margin-left: 20px;
@@ -414,8 +424,8 @@
     <div class="container">
 
         <a class="navbar-brand" href="/">
-    <img src="{% static 'generated-image.png' %}"
-         alt="Baniya Motors"
+    <img src="{% static 'admin/img/generated-image.png' %}"
+         alt="Motorhive"
          height="60">
 </a>
 
