@@ -146,6 +146,27 @@
             margin-bottom: 15px;
         }
 
+                
+        .description-box {
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .description-text {
+            margin-top: 12px;
+            color: #e2e8f0;
+            font-size: 15px;
+        }
+
+        .description-text p {
+            margin-bottom: 14px;
+        }
+
+        .description-text p:last-child {
+            margin-bottom: 0;
+        }
+
+
         .btn-premium {
             background: linear-gradient(135deg, #0ea5e9, #2563eb);
             border: none;
@@ -241,9 +262,11 @@
                         <strong>Transmission:</strong> {{ car.transmission }}
                     </div>
 
-                    <div class="info-box">
-                        <strong>Description:</strong><br><br>
-                        {{ car.description }}
+                    <div class="info-box description-box">
+                        <strong>Description:</strong>
+                        <div class="description-text">
+                            {{ car.description|linebreaks }}
+                        </div>
                     </div>
 
                     <a href="/" class="btn-premium">
