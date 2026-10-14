@@ -6,41 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Page title for Google -->
     <title>Motorhive | Quality Used Cars for Sale in Ireland</title>
-
-    <!-- SEO description -->
-    <meta name="description"
-          content="Discover quality used cars for sale at Motorhive. Browse cars by make, year, fuel type and budget. Explore our vehicle listings and find your next car.">
-
-    <!-- Search engine indexing -->
+    <meta name="description" content="Explore quality used cars at Motorhive in Ireland. Browse vehicles by make, year, fuel type and budget to find your next car.">
     <meta name="robots" content="index, follow">
-
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://motorhive.ie/">
 
-    <!-- Open Graph social sharing -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Motorhive">
-    <meta property="og:title"
-          content="Motorhive | Quality Used Cars for Sale in Ireland">
-    <meta property="og:description"
-          content="Browse quality used cars at Motorhive. Explore vehicle listings and find a car to suit your needs and budget.">
+    <meta property="og:title" content="Motorhive | Quality Used Cars for Sale in Ireland">
+    <meta property="og:description" content="Explore used cars at Motorhive. Browse vehicle listings and find a car to suit your needs and budget.">
     <meta property="og:url" content="https://motorhive.ie/">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
-    <!-- Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
         * {
@@ -49,275 +30,72 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: #dcdee2;
-            color: #ffffff;
+            background: #f8fafc;
+            color: #0f172a;
             overflow-x: hidden;
         }
 
+        /* NAVBAR */
         .navbar {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(15, 23, 42, 0.97);
             backdrop-filter: blur(12px);
-            padding: 18px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .navbar-brand {
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: white !important;
-            letter-spacing: 1px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,.08);
         }
 
         .navbar-brand img {
             height: 60px;
             width: 200px;
-            transition: 0.3s;
+            object-fit: contain;
+            transition: .3s;
         }
 
         .navbar-brand img:hover {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .nav-link {
-            color: rgba(255,255,255,0.8) !important;
-            margin-left: 20px;
-            transition: 0.3s;
+            color: rgba(255,255,255,.85) !important;
+            margin-left: 18px;
             font-weight: 500;
+            transition: .3s;
         }
 
         .nav-link:hover {
             color: #38bdf8 !important;
         }
 
-        .hero {
-            min-height: 100vh;
-            background:
-                linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.88)),
-                url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            position: relative;
+        .navbar-toggler {
+            border-color: rgba(255,255,255,.3);
         }
 
-        .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 25px;
+        .navbar-toggler:focus {
+            box-shadow: none;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 35px;
-            max-width: 600px;
-        }
-
-        .hero-btn {
-            background: linear-gradient(135deg, #0ea5e9, #2563eb);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-            display: inline-block;
-            box-shadow: 0 10px 25px rgba(37,99,235,0.4);
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-4px);
-            color: white;
-        }
-
-        .stats {
-            margin-top: 60px;
-        }
-
-        .stat-box h3 {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .stat-box p {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
-        .section-title p {
-            color: rgba(255,255,255,0.65);
-            margin-top: 10px;
-        }
-
-        .cars-section {
-            padding: 100px 0;
-            background: #ffffff;
-            color: #111;
-        }
-
-        .car-card {
-            background: linear-gradient(180deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: 0.4s ease;
-            height: 100%;
-            position: relative;
-        }
-
-        .car-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-        }
-
-        .car-image {
-            height: 260px;
-            overflow: hidden;
-        }
-
-        .car-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-
-        .car-card:hover .car-image img {
-            transform: scale(1.08);
-        }
-
-        .car-content {
-            padding: 25px;
-        }
-
-        .car-content h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .car-meta {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .meta-item {
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 12px;
-        }
-
-        .meta-item span {
-            display: block;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.55);
-            margin-bottom: 4px;
-        }
-
-        .meta-item strong {
-            color: white;
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #38bdf8;
-            margin-bottom: 15px;
-        }
-
-        .description {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 25px;
-        }
-
-        .card-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #0ea5e9, #2563eb);
-            border: none;
-            color: white;
-            padding: 14px;
-            border-radius: 14px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .card-btn:hover {
-            transform: scale(1.02);
-        }
-
-        .features {
-            padding: 100px 0;
-            background: #0f172a;
-        }
-
-        .feature-box {
-            text-align: center;
-            padding: 40px 30px;
-            border-radius: 24px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: 0.3s;
-            height: 100%;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .feature-box i {
-            font-size: 3rem;
-            color: #38bdf8;
-            margin-bottom: 20px;
-        }
-
-        .feature-box h4 {
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .feature-box p {
-            color: rgba(255,255,255,0.7);
-        }
-
-        footer {
-            background: #020617;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .footer-text {
-            color: rgba(255,255,255,0.6);
-        }
-
+        /* FILTER SECTION */
         .filter-section {
-            margin-top: 90px;
-            padding: 30px 0;
+            margin-top: 84px;
+            padding: 24px 0;
             background: #0f172a;
         }
 
         .filter-box {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            background: #fff;
+            padding: 24px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.15);
         }
 
         .filter-box label {
-            color: black;
+            color: #0f172a;
             font-weight: 600;
             margin-bottom: 8px;
         }
@@ -325,352 +103,657 @@
         .filter-box .form-control,
         .filter-box .form-select {
             height: 50px;
-            border-radius: 12px;
+            border-radius: 10px;
         }
 
         .filter-btn {
             height: 50px;
+            width: 100%;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             background: linear-gradient(135deg, #0ea5e9, #2563eb);
-            color: white;
+            color: #fff;
             font-weight: 600;
-            transition: 0.3s;
+            transition: .25s;
         }
 
         .filter-btn:hover {
             transform: translateY(-2px);
         }
 
-        .sold-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: red;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-weight: bold;
-            z-index: 10;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
+        /* HERO SLIDER */
         .hero-slider {
             position: relative;
-            height: 100vh;
+            height: min(82vh, 850px);
+            min-height: 540px;
             overflow: hidden;
+            background: #020617;
+        }
+
+        .hero-slider .carousel,
+        .hero-slider .carousel-inner,
+        .hero-slider .carousel-item {
+            height: 100%;
         }
 
         .hero-media {
             width: 100%;
-            height: 100vh;
+            height: 100%;
+            min-height: 540px;
             object-fit: cover;
             display: block;
-            background: #000;
+            background: #020617;
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background:
-            linear-gradient(
-                to right,
-                rgba(0,0,0,0.75),
-                rgba(0,0,0,0.35)
+            background: linear-gradient(
+                90deg,
+                rgba(0,0,0,.78) 0%,
+                rgba(0,0,0,.53) 45%,
+                rgba(0,0,0,.16) 100%
             );
+            pointer-events: none;
         }
 
         .custom-caption {
             position: absolute;
-            top: 50%;
-            left: 8%;
-            transform: translateY(-50%);
-            z-index: 10;
-
-            text-align: center !important;
-
+            top: 55%;
+            left: 6%;
             right: auto !important;
             bottom: auto !important;
-
-            width: 100%;
-            max-width: 700px;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: min(680px, 86%);
+            max-width: 680px;
+            padding: 0 !important;
+            text-align: left !important;
         }
 
-        .carousel-caption {
-            left: 0 !important;
-            right: 0 !important;
-            bottom: auto !important;
-            padding-bottom: 0 !important;
-            text-align: center;
+        /* Override Bootstrap's default caption positioning */
+        .carousel-caption.custom-caption {
+            left: 6%;
+            right: auto;
+            bottom: auto;
+            text-align: left;
         }
 
         .custom-caption h1 {
-            font-size: 4.5rem;
+            max-width: 680px;
+            color: #fff;
+            font-size: clamp(2.4rem, 4.2vw, 3.8rem);
             font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -1px;
+            margin: 0 0 16px;
+            text-shadow: 0 3px 18px rgba(0,0,0,.4);
         }
 
         .custom-caption p {
-            font-size: 1.2rem;
-            max-width: 650px;
-            margin-top: 20px;
-            margin-bottom: 35px;
-            color: rgba(255,255,255,0.82);
-            line-height: 1.8;
-            font-weight: 300;
+            max-width: 560px;
+            color: rgba(255,255,255,.92);
+            font-size: clamp(1rem, 1.3vw, 1.15rem);
+            font-weight: 400;
+            line-height: 1.7;
+            margin: 0 0 26px;
+            text-shadow: 0 2px 10px rgba(0,0,0,.45);
         }
 
-        .hero-btn:hover {
-            color: white;
+        .custom-caption .hero-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            color: #fff;
+            font-size: .95rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 22px rgba(37,99,235,.25);
+            transition: transform .25s, box-shadow .25s;
         }
 
-        @media(max-width: 991px) {
-            .hero-content h1 {
-                font-size: 3rem;
+        .custom-caption .hero-btn:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(37,99,235,.35);
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 6%;
+            z-index: 11;
+        }
+
+        /* SECTION HEADINGS */
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title h2 {
+            color: #0f172a;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: #64748b;
+            margin-top: 10px;
+        }
+
+        /* CARS */
+        .cars-section {
+            padding: 85px 0;
+            background: #fff;
+            color: #0f172a;
+        }
+
+        .car-card {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #0f172a;
+            border: 1px solid rgba(15,23,42,.08);
+            box-shadow: 0 8px 25px rgba(15,23,42,.08);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(15,23,42,.17);
+        }
+
+        .car-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.05);
+        }
+
+        .sold-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 2;
+            background: #dc2626;
+            color: #fff;
+            padding: 7px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: .85rem;
+            letter-spacing: 1px;
+        }
+
+        .car-content {
+            padding: 24px;
+            color: #fff;
+        }
+
+        .car-content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .car-meta {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            background: rgba(255,255,255,.06);
+            border-radius: 10px;
+            padding: 11px;
+            overflow-wrap: anywhere;
+        }
+
+        .meta-item span {
+            display: block;
+            font-size: .78rem;
+            color: rgba(255,255,255,.6);
+            margin-bottom: 4px;
+        }
+
+        .meta-item strong {
+            color: #fff;
+            font-size: .92rem;
+        }
+
+        .price {
+            color: #38bdf8;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: rgba(255,255,255,.72);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .card-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            border: none;
+            color: #fff;
+            padding: 13px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: .25s;
+        }
+
+        .card-btn:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 85px 0;
+            background: #0f172a;
+            color: #fff;
+        }
+
+        .features .section-title h2 {
+            color: #fff;
+        }
+
+        .features .section-title p {
+            color: rgba(255,255,255,.65);
+        }
+
+        .feature-box {
+            height: 100%;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 18px;
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.08);
+            transition: .3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-6px);
+            background: rgba(255,255,255,.07);
+        }
+
+        .feature-box i {
+            display: inline-block;
+            font-size: 2.7rem;
+            color: #38bdf8;
+            margin-bottom: 18px;
+        }
+
+        .feature-box h4 {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-box p {
+            color: rgba(255,255,255,.7);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #020617;
+            padding: 35px 0;
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,.62);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+
+            .navbar-nav {
+                padding-top: 12px;
+            }
+
+            .hero-slider {
+                height: 72vh;
+                min-height: 500px;
+            }
+
+            .hero-media {
+                min-height: 500px;
             }
         }
 
-        @media(max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.3rem;
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                width: 170px;
+                height: 52px;
             }
 
-            .section-title h2 {
-                font-size: 2rem;
+            .filter-section {
+                margin-top: 76px;
+                padding: 18px 0;
+            }
+
+            .filter-box {
+                padding: 18px;
+            }
+
+            .hero-slider {
+                height: 68vh;
+                min-height: 480px;
+            }
+
+            .hero-media {
+                min-height: 480px;
+            }
+
+            .hero-overlay {
+                background: linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.78),
+                    rgba(0,0,0,.4)
+                );
+            }
+
+            .custom-caption,
+            .carousel-caption.custom-caption {
+                top: 55%;
+                left: 6%;
+                width: 88%;
+                max-width: 88%;
+            }
+
+            .custom-caption h1 {
+                font-size: clamp(2rem, 7vw, 2.8rem);
+                letter-spacing: -.5px;
+                margin-bottom: 12px;
+            }
+
+            .custom-caption p {
+                font-size: .95rem;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            .custom-caption .hero-btn {
+                padding: 12px 22px;
+                font-size: .9rem;
+            }
+
+            .cars-section,
+            .features {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                margin-bottom: 35px;
+            }
+
+            .car-image {
+                height: 230px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .navbar-brand img {
+                width: 145px;
+                height: 48px;
+            }
+
+            .custom-caption h1 {
+                font-size: 1.9rem;
+            }
+
+            .custom-caption p {
+                font-size: .9rem;
             }
         }
     </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
 
-        <a class="navbar-brand" href="/">
-    <img src="{% static 'admin/img/MH logo.png' %}"
-         alt="Motorhive"
-         height="60">
-</a>
+        <a class="navbar-brand" href="{% url 'home' %}" aria-label="Motorhive homepage">
+            <img src="{% static 'admin/img/MH logo.png' %}"
+                 alt="Motorhive logo"
+                 width="200"
+                 height="60">
+        </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-
             <ul class="navbar-nav ms-auto align-items-lg-center">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#cars">Cars</a>
+                    <a class="nav-link" href="{% url 'home' %}#cars">Cars</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
+                    <a class="nav-link" href="{% url 'home' %}#features">Features</a>
                 </li>
 
-                <!-- NEW: About -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
 
-                <!-- NEW: Contact -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                 </li>
 
-                <!-- NEW: Phone -->
                 <li class="nav-item ms-lg-3">
-                    <a class="nav-link fw-semibold text-info" href="tel:+1234567890">
-                        📞 +353 894753306
+                    <a class="nav-link fw-semibold text-info"
+                       href="tel:+353894753306">
+                        <i class="bi bi-telephone-fill"></i>
+                        +353 89 475 3306
                     </a>
                 </li>
 
             </ul>
-
         </div>
     </div>
 </nav>
-<!-- FILTER SECTION -->
+
+<!-- CAR FILTERS -->
 <section class="filter-section">
     <div class="container">
-
-        <form method="GET" action="" class="filter-box">
-
+        <form method="GET" action="{% url 'home' %}" class="filter-box">
             <div class="row g-3 align-items-end">
 
-                <!-- Brand -->
                 <div class="col-lg-3 col-md-6">
-                    <label class="form-label">Brand</label>
-
-                    <select name="brand" class="form-select">
+                    <label for="brand" class="form-label">Brand</label>
+                    <select name="brand" id="brand" class="form-select">
                         <option value="">All Brands</option>
-
                         {% for brand in brands %}
                             <option value="{{ brand }}"
-                                {% if request.GET.brand == brand %}
-                                    selected
-                                {% endif %}
-                            >
+                                {% if request.GET.brand == brand %}selected{% endif %}>
                                 {{ brand }}
                             </option>
                         {% endfor %}
                     </select>
                 </div>
 
-                <!-- Year -->
                 <div class="col-lg-3 col-md-6">
-                    <label class="form-label">Year</label>
-
-                    <select name="year" class="form-select">
+                    <label for="year" class="form-label">Year</label>
+                    <select name="year" id="year" class="form-select">
                         <option value="">All Years</option>
-
                         {% for year in years %}
                             <option value="{{ year }}"
-                                {% if request.GET.year == year|stringformat:"s" %}
-                                    selected
-                                {% endif %}
-                            >
+                                {% if request.GET.year == year|stringformat:"s" %}selected{% endif %}>
                                 {{ year }}
                             </option>
                         {% endfor %}
                     </select>
                 </div>
 
-                <!-- Budget -->
                 <div class="col-lg-3 col-md-6">
-                    <label class="form-label">Max Budget (€)</label>
-
+                    <label for="budget" class="form-label">Maximum Budget (€)</label>
                     <input type="number"
                            name="budget"
+                           id="budget"
                            class="form-control"
-                           placeholder="50000"
+                           min="0"
+                           placeholder="e.g. 25000"
                            value="{{ request.GET.budget }}">
                 </div>
 
-                <!-- Button -->
                 <div class="col-lg-3 col-md-6">
-                    <button type="submit" class="filter-btn w-100">
-                        Search Cars
+                    <button type="submit" class="filter-btn">
+                        <i class="bi bi-search me-2"></i>Search Cars
                     </button>
                 </div>
 
             </div>
-
         </form>
-
     </div>
 </section>
 
 <!-- HERO SLIDER -->
-<section class="hero-slider">
-
-    <div id="heroCarousel" class="carousel slide carousel-fade"
-         data-bs-ride="carousel">
+<section class="hero-slider" aria-label="Featured Motorhive vehicles">
+    <div id="heroCarousel"
+         class="carousel slide carousel-fade"
+         data-bs-ride="carousel"
+         data-bs-interval="6000">
 
         <div class="carousel-inner">
 
             {% for slide in slides %}
-
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
 
-                <!-- VIDEO -->
                 {% if slide.video %}
                 <video class="hero-media"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="auto">
-                <source src="{{ slide.video.url }}" type="video/mp4">
+                       autoplay
+                       muted
+                       loop
+                       playsinline
+                       preload="{% if forloop.first %}auto{% else %}metadata{% endif %}"
+                       {% if forloop.first %}fetchpriority="high"{% endif %}>
+                    <source src="{{ slide.video.url }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 {% endif %}
 
-                <!-- OVERLAY -->
                 <div class="hero-overlay"></div>
 
-                <!-- CONTENT -->
                 <div class="carousel-caption custom-caption">
-
                     <h1>{{ slide.title }}</h1>
-
                     <p>{{ slide.subtitle }}</p>
 
-                    <a href="{{ slide.button_link }}"
-                       class="hero-btn">
-
+                    <a href="{{ slide.button_link }}" class="hero-btn">
                         {{ slide.button_text }}
-
+                        <i class="bi bi-arrow-right ms-2"></i>
                     </a>
-
                 </div>
 
             </div>
+            {% empty %}
+            <div class="carousel-item active">
+                <div class="hero-media"
+                     style="background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.25)),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;">
+                </div>
 
+                <div class="hero-overlay"></div>
+
+                <div class="carousel-caption custom-caption">
+                    <h1>Affordable Used Cars.</h1>
+                    <p>Quality cars. Competitive prices. Confidence on every drive.</p>
+                    <a href="#cars" class="hero-btn">
+                        Explore Our Cars
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
             {% endfor %}
 
         </div>
 
-        <!-- Buttons -->
+        {% if slides|length > 1 %}
         <button class="carousel-control-prev"
                 type="button"
                 data-bs-target="#heroCarousel"
-                data-bs-slide="prev">
-
-            <span class="carousel-control-prev-icon"></span>
-
+                data-bs-slide="prev"
+                aria-label="Previous slide">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
 
         <button class="carousel-control-next"
                 type="button"
                 data-bs-target="#heroCarousel"
-                data-bs-slide="next">
-
-            <span class="carousel-control-next-icon"></span>
-
+                data-bs-slide="next"
+                aria-label="Next slide">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
+        {% endif %}
 
     </div>
-
 </section>
 
-<!-- Cars -->
+<!-- FEATURED VEHICLES -->
 <section class="cars-section" id="cars">
     <div class="container">
 
         <div class="section-title">
             <h2>Featured Vehicles</h2>
-            <p>Explore our premium collection of luxury cars</p>
+            <p>Explore our available cars and find the right fit for you.</p>
         </div>
 
         <div class="row g-4">
 
             {% for car in cars %}
-
             <div class="col-lg-4 col-md-6">
-                <div class="car-card">
+                <article class="car-card">
 
                     <div class="car-image position-relative">
-
                         {% if car.sold %}
-                        <div class="sold-badge">
-                            SOLD
-                        </div>
+                        <span class="sold-badge">SOLD</span>
                         {% endif %}
-                        <img src="{{ car.image.url }}" alt="{{ car.title }}">
+
+                        {% if car.image %}
+                        <img src="{{ car.image.url }}"
+                             alt="{{ car.title }}"
+                             loading="lazy">
+                        {% endif %}
                     </div>
 
                     <div class="car-content">
-
                         <h3>{{ car.title }}</h3>
 
                         <div class="car-meta">
-
                             <div class="meta-item">
                                 <span>Brand</span>
                                 <strong>{{ car.brand }}</strong>
@@ -690,68 +773,79 @@
                                 <span>Transmission</span>
                                 <strong>{{ car.transmission }}</strong>
                             </div>
-
                         </div>
 
-                        <div class="price">
-                            €{{ car.price }}
-                        </div>
+                        <div class="price">€{{ car.price|floatformat:0 }}</div>
 
                         <p class="description">
                             {{ car.description|truncatewords:18 }}
                         </p>
 
-                        <a href="{% url 'car_detail' car.id %}" class="btn card-btn">
+                        <a href="{% url 'car_detail' car.id %}"
+                           class="btn card-btn">
                             View Details
+                            <i class="bi bi-arrow-right ms-2"></i>
                         </a>
-
                     </div>
-                </div>
-            </div>
 
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-4">
+                <h3>No vehicles found</h3>
+                <p class="text-secondary">
+                    Try changing your filters or check back later for available cars.
+                </p>
+                <a href="{% url 'home' %}" class="btn btn-primary">
+                    View All Cars
+                </a>
+            </div>
             {% endfor %}
 
         </div>
     </div>
 </section>
 
-<!-- Features -->
+<!-- FEATURES -->
 <section class="features" id="features">
     <div class="container">
 
         <div class="section-title">
-            <h2>Why Choose Us</h2>
-            <p>We provide world-class car buying experience</p>
+            <h2>Why Choose Motorhive?</h2>
+            <p>Helping you make a confident car-buying decision.</p>
         </div>
 
         <div class="row g-4">
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="feature-box">
                     <i class="bi bi-shield-check"></i>
-                    <h4>Trusted Quality</h4>
+                    <h4>Quality Vehicles</h4>
                     <p>
-                        Every vehicle undergoes strict inspection to ensure premium quality.
+                        Explore vehicle details and specifications to help you
+                        make an informed choice.
                     </p>
                 </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="feature-box">
                     <i class="bi bi-currency-euro"></i>
-                    <h4>Affordable Pricing</h4>
+                    <h4>Competitive Pricing</h4>
                     <p>
-                        Affordable cars available at highly competitive prices.
+                        Browse our listings and compare vehicles to find an
+                        option that suits your budget.
                     </p>
                 </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="feature-box">
                     <i class="bi bi-headset"></i>
-                    <h4>After Sales Support</h4>
+                    <h4>Customer Support</h4>
                     <p>
-                        Our support team is available during opening hours for customer assistance.
+                        Have a question about a vehicle? Contact our team for
+                        assistance with your enquiry.
                     </p>
                 </div>
             </div>
@@ -760,15 +854,29 @@
     </div>
 </section>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer>
     <div class="container text-center">
-        <h3 class="mb-3">Motorhive  Autos</h3>
+        <h3 class="mb-3 text-white">Motorhive Autos</h3>
+
         <p class="footer-text">
-            Affordable Cars • Trusted Service • Luxury Experience
+            Quality Vehicles • Competitive Prices • Customer Service
         </p>
-        <p class="footer-text mb-0">
-            © 2026 Motorhive. All Rights Reserved.
+
+        <p class="footer-text mb-2">
+            &copy; 2026 Motorhive. All Rights Reserved.
+        </p>
+
+        <p class="mb-0">
+            <a class="link-info text-decoration-none"
+               href="{% url 'contact' %}">
+                Contact Us
+            </a>
+            <span class="footer-text mx-2">|</span>
+            <a class="link-info text-decoration-none"
+               href="{% url 'about' %}">
+                About Us
+            </a>
         </p>
     </div>
 </footer>
