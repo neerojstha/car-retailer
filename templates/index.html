@@ -156,19 +156,30 @@
             pointer-events: none;
         }
 
+        
         .custom-caption {
             position: absolute;
-            top: 55%;
-            left: 6%;
+            top: 50%;
+            left: 50% !important;
             right: auto !important;
             bottom: auto !important;
-            transform: translateY(-50%);
+            transform: translate(-50%, -50%);
             z-index: 10;
-            width: min(680px, 86%);
-            max-width: 680px;
+            width: 90%;
+            max-width: 800px;
             padding: 0 !important;
-            text-align: left !important;
+            text-align: center !important;
         }
+
+        .custom-caption h1,
+        .custom-caption p {
+            text-align: center !important;
+        }
+
+        .custom-caption .btn {
+            display: inline-block;
+        }
+
 
         /* Override Bootstrap's default caption positioning */
         .carousel-caption.custom-caption {
