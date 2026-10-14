@@ -1,132 +1,581 @@
+```html
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us | Motorhive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Contact Motorhive | Used Cars for Sale in Ireland</title>
+
+    <meta name="description"
+          content="Contact Motorhive in Swords, Co. Dublin, for enquiries about used cars, vehicle details and sales. Call or email our team.">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://motorhive.ie/contact/">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        body {
-            background: #f8f9fa;
-            font-family: 'Poppins', sans-serif;
-            padding-top: 80px;
+        * {
+            box-sizing: border-box;
         }
 
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding-top: 90px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(15, 23, 42, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .navbar-brand img {
+            height: 55px;
+            width: 180px;
+            object-fit: contain;
+            transition: 0.3s;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.04);
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            margin-left: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #38bdf8 !important;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            background:
+                linear-gradient(
+                    rgba(2, 6, 23, 0.88),
+                    rgba(15, 23, 42, 0.93)
+                );
+            color: white;
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.8);
+            margin: 0 auto;
+            max-width: 650px;
+            line-height: 1.8;
+        }
+
+        /* CONTACT SECTION */
         .contact-section {
-            padding: 120px 0;
+            padding: 70px 0;
+        }
+
+        .contact-box,
+        .contact-info {
+            height: 100%;
+            border-radius: 22px;
+            padding: 35px;
         }
 
         .contact-box {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 35px rgba(15,23,42,0.08);
+        }
+
+        .contact-box h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-intro {
+            color: #64748b;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
         }
 
         .form-control {
+            border: 1px solid #dbe2ea;
             border-radius: 12px;
-            padding: 12px;
+            padding: 13px 15px;
+            background: #f8fafc;
+        }
+
+        .form-control:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14,165,233,0.12);
+            background: white;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
         }
 
         .btn-custom {
             background: linear-gradient(135deg, #0ea5e9, #2563eb);
             color: white;
-            padding: 12px;
+            padding: 14px 20px;
             border-radius: 12px;
             border: none;
             width: 100%;
             font-weight: 600;
+            transition: 0.3s;
         }
 
+        .btn-custom:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+        }
+
+        /* BUSINESS INFORMATION */
         .contact-info {
             background: #0f172a;
             color: white;
-            padding: 40px;
-            border-radius: 20px;
-            height: 100%;
+            box-shadow: 0 12px 35px rgba(15,23,42,0.12);
         }
 
-        .contact-info h3 {
-            margin-bottom: 20px;
+        .contact-info h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
-        .contact-info p {
+        .contact-info .info-intro {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 24px;
+        }
+
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(56,189,248,0.13);
+            color: #38bdf8;
+            border-radius: 12px;
+            font-size: 1.2rem;
+        }
+
+        .info-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 5px;
+        }
+
+        .info-item p {
+            color: rgba(255,255,255,0.75);
+            margin: 0;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-info a {
+            color: #7dd3fc;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .business-hours {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 25px;
+            margin-top: 25px;
+        }
+
+        .business-hours h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
             margin-bottom: 10px;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.75);
+            font-size: 0.9rem;
+        }
+
+        .hours-row span:last-child {
+            text-align: right;
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #020617;
+            color: rgba(255,255,255,0.65);
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer h3 {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        footer a {
+            color: #7dd3fc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 991px) {
+            .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+
+            .navbar-nav {
+                padding-top: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding-top: 78px;
+            }
+
+            .navbar-brand img {
+                width: 145px;
+                height: 45px;
+            }
+
+            .page-header {
+                padding: 45px 15px;
+            }
+
+            .contact-section {
+                padding: 40px 0;
+            }
+
+            .contact-box,
+            .contact-info {
+                padding: 25px;
+                border-radius: 16px;
+            }
+
+            .hours-row {
+                font-size: 0.82rem;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container contact-section">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
 
-    <div class="text-center mb-5">
-        <h1>Contact Us</h1>
-        <p>We are here to help you find your dream car</p>
+        <a class="navbar-brand" href="{% url 'home' %}" aria-label="Motorhive homepage">
+            <img src="{% static 'admin/img/MH logo.png' %}"
+                 alt="Motorhive logo">
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}#cars">Cars</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}#features">Features</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       href="{% url 'contact' %}"
+                       aria-current="page">Contact</a>
+                </li>
+
+                <li class="nav-item ms-lg-3">
+                    <a class="nav-link fw-semibold text-info"
+                       href="tel:+353894753306">
+                        <i class="bi bi-telephone-fill"></i>
+                        +353 89 475 3306
+                    </a>
+                </li>
+
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <div class="row g-4">
+<!-- PAGE HEADER -->
+<header class="page-header">
+    <div class="container">
+        <h1>Contact Motorhive</h1>
+        <p>
+            Looking for your next car or have a question about one of our vehicles?
+            Get in touch with our team. We will be happy to help.
+        </p>
+    </div>
+</header>
 
-        <!-- Contact Form -->
-        <div class="col-lg-7">
-            <div class="contact-box">
+<!-- CONTACT CONTENT -->
+<main>
+    <section class="contact-section">
+        <div class="container">
 
-                <form method="POST">
-                    {% csrf_token %}
+            <div class="row g-4">
 
-                    <div class="mb-3">
-                        <label>Name</label>
-                        <input type="text" class="form-control" name="name" required>
+                <!-- CONTACT FORM -->
+                <div class="col-lg-7">
+                    <div class="contact-box">
+
+                        <h2>Send Us a Message</h2>
+                        <p class="section-intro">
+                            Complete the form below and let us know how we can help.
+                        </p>
+
+                        <!-- Django success and error messages -->
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+                                     role="alert">
+                                    {{ message }}
+                                    <button type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <form method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
+
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="name"
+                                       name="name"
+                                       autocomplete="name"
+                                       maxlength="100"
+                                       required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email"
+                                       class="form-control"
+                                       id="email"
+                                       name="email"
+                                       autocomplete="email"
+                                       maxlength="254"
+                                       required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel"
+                                       class="form-control"
+                                       id="phone"
+                                       name="phone"
+                                       autocomplete="tel"
+                                       maxlength="30">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Your Message *</label>
+                                <textarea class="form-control"
+                                          id="message"
+                                          name="message"
+                                          rows="5"
+                                          maxlength="5000"
+                                          required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-custom">
+                                <i class="bi bi-send-fill me-2"></i>
+                                Send Message
+                            </button>
+
+                        </form>
+
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="email" required>
-                    </div>
+                <!-- CONTACT INFORMATION -->
+                <div class="col-lg-5">
+                    <aside class="contact-info">
 
-                    <div class="mb-3">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" name="phone">
-                    </div>
+                        <h2>Get in Touch</h2>
+                        <p class="info-intro">
+                            Contact Motorhive for vehicle enquiries and assistance.
+                            We look forward to hearing from you.
+                        </p>
 
-                    <div class="mb-3">
-                        <label>Message</label>
-                        <textarea class="form-control" name="message" rows="5" required></textarea>
-                    </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div>
+                                <h3>Our Location</h3>
+                                <p>Swords, Co. Dublin, Ireland</p>
+                            </div>
+                        </div>
 
-                    <button type="submit" class="btn-custom">Send Message</button>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>
+                                    <a href="tel:+353894753306">
+                                        +353 89 475 3306
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
 
-                </form>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>
+                                    <a href="mailto:sales@motorhive.ie">
+                                        sales@motorhive.ie
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="business-hours">
+                            <h3>
+                                <i class="bi bi-clock me-2"></i>
+                                Business Hours
+                            </h3>
+
+                            <div class="hours-row">
+                                <span>Monday – Friday</span>
+                                <span>9 AM – 5 PM</span>
+                            </div>
+
+                            <div class="hours-row">
+                                <span>Saturday</span>
+                                <span>10 AM – 2 PM</span>
+                            </div>
+
+                            <div class="hours-row">
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+
+                    </aside>
+                </div>
 
             </div>
         </div>
+    </section>
+</main>
 
-        <!-- Contact Info -->
-        <div class="col-lg-5">
-            <div class="contact-info">
-
-                <h3>Motorhive</h3>
-
-                <p>📍 Swords, Co.Dublin, Ireland</p>
-                <p>📞 +353 894753306</p>
-                <p>📧 sales@motorhive.ie</p>
-                <p>🕒 Mon - Fri: 9AM - 5PM</p>
-                <p>🕒 Sat: 10AM - 2PM</p>
-                <p>🕒 Sun: Closed</p>
-
-                <hr style="border-color: rgba(255,255,255,0.2);">
-
-                <p>We respond within 24 hours to all inquiries.</p>
-
-            </div>
-        </div>
-
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <h3>Motorhive Autos</h3>
+        <p class="mb-2">
+            Affordable Cars • Trusted Service • Quality Vehicles
+        </p>
+        <p class="mb-0">
+            &copy; 2026 Motorhive. All Rights Reserved.
+        </p>
     </div>
+</footer>
 
-</div>
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
+```
