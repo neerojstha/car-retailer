@@ -2,6 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
+
+import logging
+
+logger = logging.getLogger(__name__)
+
 from .models import Car, HeroSlide
 
 def home(request):
@@ -107,13 +112,16 @@ def contact(request):
                 reply_to=[email],
             )
 
+        
         except Exception:
+            logger.exception("Motorhive contact email failed")
             messages.error(
                 request,
                 "Sorry, we could not send your message. "
                 "Please email sales@motorhive.ie directly."
             )
             return render(request, "cars/contact.html")
+
 
         messages.success(
             request,
