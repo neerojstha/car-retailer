@@ -109,7 +109,6 @@ def contact(request):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=["sales@motorhive.ie"],
                 fail_silently=False,
-                reply_to=[email],
             )
 
         
